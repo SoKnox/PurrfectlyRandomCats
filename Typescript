@@ -1,0 +1,27 @@
+#maria
+#TS code to choose a random image from cat shape folder and display it on the screen
+#then have the code choose a random image from eye folder and display it on the screen
+
+// this will choose a random image from a specified folder
+function getRandomImageFromFolder(folderPath: string): string {
+    // Sample images in the folder (adjust based on actual image filenames)
+    const images = ['image1.png', 'image2.png', 'image3.png']; // Replace with actual filenames
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return `${folderPath}/${images[randomIndex]}`;
+}
+
+// this will display the image on the screen
+function displayImage(imagePath: string, elementId: string): void {
+    const imgElement = document.createElement('img');
+    imgElement.src = imagePath;
+    imgElement.alt = 'Random Image';
+    document.getElementById(elementId)?.appendChild(imgElement);
+}
+
+// this will show a random cat shape and random eye 
+const catShapeImage = getRandomImageFromFolder('catShape');
+const eyeImage = getRandomImageFromFolder('eye');
+
+// displays images on the screen
+displayImage(catShapeImage, 'catShapeContainer');
+displayImage(eyeImage, 'eyeContainer');
